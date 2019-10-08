@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Amicable</title>
+</head>
+
+<body>
+	<form>
+		<div>Enter a number: </div>
+		<input type="text" id="txt1" placeholder="#">
+	</br>
+	<div>Enter another number: </div>
+	<input type="text" id="txt2" placeholder="#">
+</br>
+<input type='button' onclick='isAmicable()' value="Calculate">
+</form>
+
+<script language="javascript" type="text/javascript"> 
+
+
+	function isFactor(num, test_num)
+	{
+		if (num%test_num==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	function showFactors(array)
+	{
+		var content="";
+		for (var i = 0; i < array.length; i++) {
+			content+=array[i]+" ";
+		}
+		return content;
+	}
+
+	function addFactors(array)
+	{
+		var sum=0;
+		for (var i = 0; i < array.length; i++) {
+			sum+=array[i];
+		}
+		return sum;
+	}
+
+	function getFactors(num)
+	{
+		var factors = new Array();
+		for (var i = 1; i < num; i++) {
+			if (isFactor(num,i)==true) {
+				factors.push(i);
+			}
+		}
+		return factors;
+	}
+
+	function isAmicable()
+	{
+		val1 = document.getElementById("txt1").value;
+		val2 = document.getElementById("txt2").value;
+
+		factors1=getFactors(val1);
+		factors2=getFactors(val2);
+
+		sum1=addFactors(factors1);
+		sum2=addFactors(factors2);
+
+		if (sum1==val2 && sum2==val1) {
+			var newLine = "\r\n";
+            var message = "Factors of "+val1+": "+showFactors(factors1);
+            message += newLine;
+            message += "Factors of "+val2+": "+showFactors(factors2);
+            message += newLine;
+            message += val1+"'s factors sum to "+sum1;
+            message += newLine;
+            message += val2+"'s factors sum to "+sum2;
+             message += newLine;
+            message += "These numbers are AMICABLE.";
+            alert(message);
+		}
+		else
+			alert("These numbers are NOT amicable.")
+	}
+	//********************************************* TEST CODE BLOCK 1 *****************************************************************
+	/* 
+	if (isFactor(220,1)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,2)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,4)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,5)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,10)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,11)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,20)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,22)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,44)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,1)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,1)==true) 
+		alert("isFactor works properly");
+	else 
+		alert("isFactor doesn't work properly");
+
+	if (isFactor(220,6)==true) 
+		alert("isFactor doesn't work properly");
+	else 
+		alert("isFactor works properly");
+
+	if (isFactor(220,7)==true) 
+		alert("isFactor doesn't work properly");
+	else 
+		alert("isFactor works properly");
+
+	if (isFactor(220,900)==true) 
+		alert("isFactor doesn't work properly");
+	else 
+		alert("isFactor works properly");
+	*/
+	//*********************************************************************************************************************************
+
+	//********************************************* TEST CODE BLOCK 2 *****************************************************************
+	/*
+	var nums = new Array();
+		for (i = 0; i<10; i++)
+		{
+			n = Math.random() * 9;
+			n+=1;
+			n= Math.round(n);
+			nums[i]=n;
+		}
+	showFactors(nums);
+	*/
+	//*********************************************************************************************************************************
+
+	//********************************************* TEST CODE BLOCK 3 *****************************************************************
+	/*
+	var nums = new Array();
+		for (i = 0; i<10; i++)
+		{
+			n = 1;
+			nums[i]=n;
+		}
+	addFactors(nums);
+	*/
+	//*********************************************************************************************************************************
+
+	//********************************************* TEST CODE BLOCK 4 *****************************************************************
+	/*
+	array=getFactors(220);
+	showFactors(array);
+	*/
+	//*********************************************************************************************************************************
+</script>
+</body>
+</html>
